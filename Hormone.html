@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>สรุปฮอร์โมนและระบบต่อมไร้ท่อ | หน้า 1-37</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@500;600;700&family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F7F4EC;
+  --paper:#FFFFFF;
+  --ink:#1B2A2E;
+  --sub:#5A6B6E;
+  --line:#E4DFD1;
+  --sidebar:#0E2B2E;
+  --sidebar-ink:#CFE0DD;
+  --sidebar-line:rgba(255,255,255,.10);
+  --gold:#C9962C;
+  --gold-bg:#FBF1DC;
+
+  --c-basic:#4B5A9E;
+  --c-pit:#5B4FA6;
+  --c-thy:#0E8C82;
+  --c-para:#B4762A;
+  --c-pin:#7B4B9E;
+  --c-thym:#B84A72;
+  --c-panc:#3C8A4C;
+  --c-adr:#C05A29;
+  --c-gon:#2E6E9E;
+  --c-misc:#6B6458;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Sarabun',sans-serif;
+  font-size:16px;
+  line-height:1.7;
+}
+h1,h2,h3,h4,.display{
+  font-family:'Kanit',sans-serif;
+  font-weight:600;
+  line-height:1.3;
+  margin:0;
+}
+a{color:inherit;}
+img{max-width:100%;}
+
+/* ---------- layout shell ---------- */
+.shell{display:flex; min-height:100vh;}
+.sidebar{
+  width:272px; flex-shrink:0;
+  background:var(--sidebar);
+  color:var(--sidebar-ink);
+  position:sticky; top:0; height:100vh; overflow-y:auto;
+  padding:26px 18px 40px;
+}
+.sidebar::-webkit-scrollbar{width:6px;}
+.sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,.15); border-radius:3px;}
+.side-title{
+  font-family:'Kanit',sans-serif; font-weight:600; font-size:15px;
+  color:#fff; letter-spacing:.2px; margin-bottom:2px;
+}
+.side-sub{font-size:12.5px; color:#89A6A2; margin-bottom:22px;}
+.side-nav{list-style:none; margin:0; padding:0;}
+.side-nav li{margin-bottom:2px;}
+.side-nav a{
+  display:flex; align-items:center; gap:10px;
+  padding:7px 10px; border-radius:8px;
+  font-size:13.6px; text-decoration:none; color:var(--sidebar-ink);
+  border-left:2px solid transparent;
+  transition:background .15s;
+}
+.side-nav a:hover{background:var(--sidebar-line);}
+.dot{width:9px; height:9px; border-radius:50%; flex-shrink:0;}
+.side-group-label{
+  font-size:11px; text-transform:uppercase; letter-spacing:.08em;
+  color:#5F8783; margin:18px 0 6px 10px;
+}
+
+.main{flex:1; min-width:0;}
+.wrap{max-width:900px; margin:0 auto; padding:0 28px 100px;}
+
+/* ---------- hero ---------- */
+.hero{
+  background:linear-gradient(180deg,#123338 0%, #0E2B2E 100%);
+  color:#fff; padding:54px 28px 46px; text-align:left;
+}
+.hero-inner{max-width:900px; margin:0 auto;}
+.hero-eyebrow{
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:13px; color:#F3CD7A; font-weight:600;
+  background:rgba(201,150,44,.15); border:1px solid rgba(201,150,44,.35);
+  padding:5px 12px; border-radius:99px; margin-bottom:18px;
+}
+.hero h1{font-size:34px; color:#fff; max-width:640px;}
+.hero p{color:#B7CFCB; font-size:16px; margin-top:12px; max-width:560px;}
+.hero-stats{display:flex; gap:28px; margin-top:26px; flex-wrap:wrap;}
+.hero-stat b{display:block; font-family:'Kanit',sans-serif; font-size:22px; color:#F3CD7A;}
+.hero-stat span{font-size:12.5px; color:#8FADA9;}
+
+/* ---------- intro note ---------- */
+.note{
+  background:var(--gold-bg); border:1px solid #ECD79E; border-radius:12px;
+  padding:16px 20px; margin:26px 0; font-size:14.5px; color:#5A4614;
+}
+.note b{color:#8A6410;}
+
+/* ---------- sections ---------- */
+.gland{
+  margin-top:56px; padding-top:8px; scroll-margin-top:20px;
+}
+.gland-head{
+  display:flex; align-items:baseline; gap:12px;
+  border-bottom:3px solid var(--accent, var(--c-basic));
+  padding-bottom:10px; margin-bottom:20px;
+}
+.gland-num{
+  font-family:'Kanit',sans-serif; font-weight:700; font-size:14px;
+  color:#fff; background:var(--accent, var(--c-basic));
+  width:30px; height:30px; border-radius:8px;
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.gland-head h2{font-size:23px; color:var(--ink);}
+.gland-head .eng{font-size:13.5px; color:var(--sub); font-weight:400; font-family:'Sarabun';}
+
+.card{
+  background:var(--paper); border:1px solid var(--line); border-radius:14px;
+  padding:20px 22px; margin-bottom:16px;
+}
+.card h4{font-size:15.5px; color:var(--accent,var(--c-basic)); margin-bottom:8px;}
+.card p{margin:6px 0;}
+.card ul, .card ol{margin:8px 0 4px 20px; padding:0;}
+.card li{margin-bottom:5px;}
+
+.subtle{color:var(--sub); font-size:14px;}
+
+/* ---------- hormone chip row ---------- */
+.chiprow{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0 16px;}
+.chip{
+  background:color-mix(in srgb, var(--accent,var(--c-basic)) 12%, white);
+  color:var(--accent,var(--c-basic));
+  border:1px solid color-mix(in srgb, var(--accent,var(--c-basic)) 35%, white);
+  font-size:13px; font-weight:600; padding:5px 12px; border-radius:99px;
+}
+
+/* ---------- tables ---------- */
+.tbl-wrap{overflow-x:auto; margin:14px 0 18px; border-radius:12px; border:1px solid var(--line);}
+table{border-collapse:collapse; width:100%; font-size:14px; background:var(--paper);}
+th,td{padding:10px 13px; text-align:left; vertical-align:top; border-bottom:1px solid var(--line);}
+th{
+  background:color-mix(in srgb, var(--accent,var(--c-basic)) 10%, white);
+  color:var(--accent,var(--c-basic)); font-family:'Kanit'; font-weight:600; font-size:13px;
+  border-bottom:2px solid color-mix(in srgb, var(--accent,var(--c-basic)) 30%, white);
+}
+tr:last-child td{border-bottom:none;}
+td b{color:var(--ink);}
+
+/* ---------- feedback / flow diagram ---------- */
+.flow{
+  display:flex; align-items:center; gap:0; flex-wrap:wrap;
+  margin:16px 0; padding:18px; background:#FAFAF6; border:1px dashed var(--line); border-radius:12px;
+}
+.flow-step{
+  background:var(--paper); border:1.5px solid var(--accent,var(--c-basic));
+  color:var(--ink); border-radius:10px; padding:9px 14px;
+  font-size:13.5px; font-weight:600; text-align:center; min-width:110px;
+}
+.flow-arrow{color:var(--accent,var(--c-basic)); font-size:20px; padding:0 8px; font-weight:700;}
+.flow-label{font-size:11px; color:var(--sub); display:block; margin-top:2px; font-weight:400;}
+
+/* ---------- opposite pair ---------- */
+.vs-box{
+  display:grid; grid-template-columns:1fr auto 1fr; align-items:stretch; gap:10px;
+  margin:14px 0;
+}
+.vs-side{
+  border-radius:12px; padding:14px 16px; font-size:14px;
+}
+.vs-side.up{background:#FDF0E9; border:1px solid #F0C9AE;}
+.vs-side.down{background:#EAF2F8; border:1px solid #BFDCEE;}
+.vs-side b{display:block; font-family:'Kanit'; font-size:14.5px; margin-bottom:4px;}
+.vs-mid{display:flex; align-items:center; justify-content:center; font-family:'Kanit'; font-weight:600; color:var(--sub); font-size:12px;}
+
+/* ---------- mnemonic ---------- */
+.mnemo{
+  background:var(--gold-bg); border-left:4px solid var(--gold);
+  border-radius:0 12px 12px 0; padding:14px 18px; margin:14px 0; font-size:14.5px;
+}
+.mnemo b{color:#8A6410; font-family:'Kanit'; font-size:13.5px; display:block; margin-bottom:4px;}
+
+/* ---------- number pattern ---------- */
+.numgrid{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:12px; margin:14px 0;}
+.numcard{
+  background:var(--paper); border:1px solid var(--line); border-radius:12px;
+  padding:14px 14px 14px 0; display:flex; align-items:center; gap:12px;
+}
+.numcard .num{
+  font-family:'Kanit'; font-weight:700; font-size:26px; color:#fff;
+  background:var(--accent,var(--c-basic)); min-width:46px; height:46px;
+  border-radius:0 12px 12px 0; margin-left:-1px;
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.numcard .txt{font-size:13.3px; line-height:1.5;}
+.numcard .txt b{display:block; font-family:'Kanit'; font-size:13.8px; color:var(--ink);}
+.numchip{
+  display:inline-flex; align-items:center; gap:6px; font-size:13px; font-weight:600;
+  background:color-mix(in srgb, var(--accent,var(--c-basic)) 10%, white);
+  color:var(--accent,var(--c-basic)); border:1px solid color-mix(in srgb, var(--accent,var(--c-basic)) 30%, white);
+  padding:4px 10px 4px 4px; border-radius:99px; margin:4px 6px 4px 0;
+}
+.numchip .n{
+  background:var(--accent,var(--c-basic)); color:#fff; width:20px; height:20px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center; font-size:12px; font-family:'Kanit';
+}
+
+/* ---------- disorder card ---------- */
+.disorder-grid{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:14px 0;}
+@media (max-width:640px){.disorder-grid{grid-template-columns:1fr;} .vs-box{grid-template-columns:1fr;} .vs-mid{padding:2px 0;}}
+.d-card{border-radius:12px; padding:14px 16px; font-size:13.8px;}
+.d-card.low{background:#EAF2F8; border:1px solid #BFDCEE;}
+.d-card.high{background:#FDF0E9; border:1px solid #F0C9AE;}
+.d-card b{font-family:'Kanit'; font-size:14px; display:block; margin-bottom:4px;}
+
+/* ---------- quiz ---------- */
+.quiz{
+  background:#F2F6F2; border:1px solid #D6E6D8; border-radius:14px;
+  padding:18px 20px; margin:14px 0;
+}
+.quiz .q{font-weight:600; margin-bottom:8px;}
+.quiz .choices{font-size:14px; color:var(--sub); margin-bottom:8px; line-height:1.9;}
+.answer{
+  display:inline-block; background:#2F7D4F; color:#fff; font-size:13px; font-weight:600;
+  padding:4px 11px; border-radius:99px;
+}
+details.expl{margin-top:8px;}
+details.expl summary{cursor:pointer; font-size:13px; color:#2F7D4F; font-weight:600;}
+details.expl p{font-size:13.5px; color:var(--sub); margin-top:6px;}
+
+/* ---------- final summary table (big) ---------- */
+.big-summary th{white-space:nowrap;}
+
+/* ---------- back to top ---------- */
+.totop{
+  position:fixed; right:22px; bottom:22px; width:44px; height:44px; border-radius:50%;
+  background:var(--sidebar); color:#F3CD7A; display:flex; align-items:center; justify-content:center;
+  text-decoration:none; font-size:18px; box-shadow:0 6px 18px rgba(0,0,0,.2); z-index:20;
+}
+
+/* ---------- mobile ---------- */
+.menu-btn{display:none;}
+@media (max-width:880px){
+  .sidebar{position:fixed; left:0; top:0; z-index:40; transform:translateX(-100%); transition:transform .2s; box-shadow:10px 0 30px rgba(0,0,0,.3);}
+  .sidebar.open{transform:translateX(0);}
+  .menu-btn{
+    display:flex; position:fixed; top:16px; left:16px; z-index:50;
+    background:var(--sidebar); color:#F3CD7A; border:none; border-radius:10px;
+    width:42px; height:42px; align-items:center; justify-content:center; font-size:18px;
+    box-shadow:0 6px 16px rgba(0,0,0,.25);
+  }
+  .hero{padding-top:80px;}
+}
+hr.sep{border:none; border-top:1px solid var(--line); margin:34px 0;}
+.section-intro{font-size:15px; color:var(--ink); margin-bottom:16px;}
+.small-cap{font-size:12px; text-transform:uppercase; letter-spacing:.06em; color:var(--sub); font-family:'Kanit'; font-weight:600;}
+</style>
+</head>
+<body>
+
+<button class="menu-btn" onclick="document.querySelector('.sidebar').classList.toggle('open')">☰</button>
+
+<div class="shell">
+  <nav class="sidebar">
+    <div class="side-title">🧬 สรุปฮอร์โมน</div>
+    <div class="side-sub">ระบบต่อมไร้ท่อ · หน้า 1–37</div>
+    <ul class="side-nav">
+      <li><a href="#numbers"><span class="dot" style="background:var(--gold)"></span>🔢 จำด้วยตัวเลข</a></li>
+      <li><a href="#intro"><span class="dot" style="background:var(--c-basic)"></span>พื้นฐานฮอร์โมน</a></li>
+      <li><a href="#control"><span class="dot" style="background:var(--c-basic)"></span>การควบคุมการหลั่ง</a></li>
+      <li class="side-group-label">ต่อมไร้ท่อหลัก</li>
+      <li><a href="#pituitary"><span class="dot" style="background:var(--c-pit)"></span>1. ต่อมใต้สมอง</a></li>
+      <li><a href="#thyroid"><span class="dot" style="background:var(--c-thy)"></span>2. ต่อมไทรอยด์</a></li>
+      <li><a href="#parathyroid"><span class="dot" style="background:var(--c-para)"></span>3. ต่อมพาราไทรอยด์</a></li>
+      <li><a href="#pineal"><span class="dot" style="background:var(--c-pin)"></span>4. ต่อมไพเนียล</a></li>
+      <li><a href="#thymus"><span class="dot" style="background:var(--c-thym)"></span>5. ต่อมไทมัส</a></li>
+      <li><a href="#pancreas"><span class="dot" style="background:var(--c-panc)"></span>6. ตับอ่อน</a></li>
+      <li><a href="#adrenal"><span class="dot" style="background:var(--c-adr)"></span>7. ต่อมหมวกไต</a></li>
+      <li><a href="#gonads"><span class="dot" style="background:var(--c-gon)"></span>8. อวัยวะสืบพันธุ์</a></li>
+      <li><a href="#others"><span class="dot" style="background:var(--c-misc)"></span>9–11. รก / กระเพาะ / ลำไส้ / ไต</a></li>
+      <li class="side-group-label">ก่อนสอบ</li>
+      <li><a href="#opposites"><span class="dot" style="background:var(--gold)"></span>ตารางฮอร์โมนตรงข้าม</a></li>
+      <li><a href="#disorders"><span class="dot" style="background:var(--gold)"></span>สรุปโรค/ความผิดปกติ</a></li>
+      <li><a href="#quiz"><span class="dot" style="background:var(--gold)"></span>แนวข้อสอบ + เฉลย</a></li>
+    </ul>
+  </nav>
+
+  <div class="main">
+    <header class="hero">
+      <div class="hero-inner">
+        <div class="hero-eyebrow">📘 เตรียมสอบพรุ่งนี้ · บทที่ 3 ชีววิทยา ว30242</div>
+        <h1>ฮอร์โมนและระบบต่อมไร้ท่อ</h1>
+        <p>สรุปเนื้อหาหน้า 1–37 แบบเจาะจุดที่ออกสอบบ่อย พร้อมตาราง เปรียบเทียบฮอร์โมนที่ทำงานตรงข้ามกัน และแนวข้อสอบเก่าพร้อมเฉลย</p>
+        <div class="hero-stats">
+          <div class="hero-stat"><b>11</b><span>ต่อม/อวัยวะที่ต้องรู้</span></div>
+          <div class="hero-stat"><b>30+</b><span>ฮอร์โมนสำคัญ</span></div>
+          <div class="hero-stat"><b>8</b><span>โรคที่ออกสอบประจำ</span></div>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap">
+
+      <div class="note">
+        <b>วิธีใช้เอกสารนี้:</b> ไล่อ่านตามลำดับต่อมตั้งแต่ต่อมใต้สมองไปจนถึงลำไส้/ไต จุดที่ครูมักออกสอบคือ
+        <b>กลไก negative feedback ของแต่ละแกน</b> (hypothalamus → ต่อมใต้สมอง → ต่อมปลายทาง) และ<b>ตารางความผิดปกติ (หลั่งน้อย vs หลั่งมาก)</b>
+        ของแต่ละฮอร์โมน ให้เน้นสองส่วนนี้เป็นพิเศษ แล้วปิดท้ายด้วยตารางสรุปและแนวข้อสอบด้านล่างสุด
+      </div>
+
+      <!-- ===================== NUMBER PATTERN CHEAT SHEET ===================== -->
+      <section id="numbers" class="gland" style="--accent:var(--gold)">
+        <div class="gland-head">
+          <div class="gland-num">🔢</div>
+          <div><h2>จำด้วยตัวเลข — แพทเทิร์นประจำแต่ละเรื่อง</h2></div>
+        </div>
+        <p class="section-intro">แทนที่จะท่องเนื้อหายาว ๆ ให้จำเป็น "ตัวเลข" ประจำเรื่องนั้นก่อน แล้วค่อยไล่รายละเอียดทีหลัง — เห็นเลขปุ๊บ ต้องนึกออกว่าเลขนี้หมายถึงอะไร</p>
+
+        <div class="card">
+          <h4>ทะเบียนเลขฮอร์โมน — เห็นชื่อต้องนึกเลข เห็นเลขต้องนึกชื่อ</h4>
+          <p class="subtle">เรียงตามลำดับต่อมในเอกสาร (ไฮโพทาลามัส → ต่อมใต้สมอง → ไทรอยด์ → พาราไทรอยด์ → ไพเนียล → ไทมัส → ตับอ่อน → หมวกไต → อวัยวะสืบพันธุ์ → รก/ทางเดินอาหาร/ไต) ทั้งหมด <b>36 ฮอร์โมน</b> ตัวเลขนี้จะใช้กำกับซ้ำในตารางของแต่ละต่อมด้านล่างด้วย</p>
+          <div class="tbl-wrap">
+            <table class="big-summary">
+              <tr><th>No.</th><th>ฮอร์โมน</th><th>มาจาก</th><th>No.</th><th>ฮอร์โมน</th><th>มาจาก</th></tr>
+              <tr><td><b>1</b></td><td>TRH</td><td>ไฮโพทาลามัส</td><td><b>19</b></td><td>PTH</td><td>พาราไทรอยด์</td></tr>
+              <tr><td><b>2</b></td><td>GnRH</td><td>ไฮโพทาลามัส</td><td><b>20</b></td><td>Melatonin</td><td>ไพเนียล</td></tr>
+              <tr><td><b>3</b></td><td>CRH</td><td>ไฮโพทาลามัส</td><td><b>21</b></td><td>Thymosin</td><td>ไทมัส</td></tr>
+              <tr><td><b>4</b></td><td>GHRH</td><td>ไฮโพทาลามัส</td><td><b>22</b></td><td>Insulin</td><td>ตับอ่อน (β-cell)</td></tr>
+              <tr><td><b>5</b></td><td>GHIH</td><td>ไฮโพทาลามัส</td><td><b>23</b></td><td>Glucagon</td><td>ตับอ่อน (α-cell)</td></tr>
+              <tr><td><b>6</b></td><td>PIH (Dopamine)</td><td>ไฮโพทาลามัส</td><td><b>24</b></td><td>Cortisol</td><td>หมวกไต-นอก</td></tr>
+              <tr><td><b>7</b></td><td>TSH</td><td>ใต้สมอง-หน้า</td><td><b>25</b></td><td>Aldosterone</td><td>หมวกไต-นอก</td></tr>
+              <tr><td><b>8</b></td><td>ACTH</td><td>ใต้สมอง-หน้า</td><td><b>26</b></td><td>ฮอร์โมนเพศ (จากหมวกไต)</td><td>หมวกไต-นอก</td></tr>
+              <tr><td><b>9</b></td><td>LH</td><td>ใต้สมอง-หน้า</td><td><b>27</b></td><td>Epinephrine</td><td>หมวกไต-ใน</td></tr>
+              <tr><td><b>10</b></td><td>FSH</td><td>ใต้สมอง-หน้า</td><td><b>28</b></td><td>Norepinephrine</td><td>หมวกไต-ใน</td></tr>
+              <tr><td><b>11</b></td><td>GH</td><td>ใต้สมอง-หน้า</td><td><b>29</b></td><td>Testosterone</td><td>อัณฑะ (Leydig cell)</td></tr>
+              <tr><td><b>12</b></td><td>Prolactin</td><td>ใต้สมอง-หน้า</td><td><b>30</b></td><td>Estrogen</td><td>รังไข่ (follicle)</td></tr>
+              <tr><td><b>13</b></td><td>Endorphin</td><td>ใต้สมอง-หน้า</td><td><b>31</b></td><td>Progesterone</td><td>รังไข่ (corpus luteum)</td></tr>
+              <tr><td><b>14</b></td><td>MSH</td><td>ใต้สมอง-กลาง</td><td><b>32</b></td><td>HCG</td><td>รก</td></tr>
+              <tr><td><b>15</b></td><td>ADH</td><td>ใต้สมอง-หลัง</td><td><b>33</b></td><td>Gastrin</td><td>กระเพาะอาหาร</td></tr>
+              <tr><td><b>16</b></td><td>Oxytocin</td><td>ใต้สมอง-หลัง</td><td><b>34</b></td><td>Secretin</td><td>ลำไส้เล็ก</td></tr>
+              <tr><td><b>17</b></td><td>Thyroxine (T3/T4)</td><td>ไทรอยด์ (follicular cell)</td><td><b>35</b></td><td>CCK</td><td>ลำไส้เล็ก</td></tr>
+              <tr><td><b>18</b></td><td>Calcitonin</td><td>ไทรอยด์ (C-cell)</td><td><b>36</b></td><td>Erythropoietin</td><td>ไต</td></tr>
+            </table>
+          </div>
+          <div class="mnemo"><b>เทคนิคทวน</b> ปิดคอลัมน์ "ฮอร์โมน" ไว้ ดูแค่เลขกับต่อม แล้วท่องชื่อฮอร์โมนจากความจำ หรือปิดคอลัมน์ "มาจาก" แล้วบอกว่าฮอร์โมนแต่ละเบอร์มาจากต่อมไหน ทำสลับสองแบบจนคล่อง</div>
+        </div>
+
+        <div class="numgrid">
+          <div class="numcard" style="--accent:var(--c-basic)"><div class="num">3</div><div class="txt"><b>ประเภทฮอร์โมน</b>โปรตีน/เพปไทด์ · เอมีน · สเตียรอยด์</div></div>
+          <div class="numcard" style="--accent:var(--c-basic)"><div class="num">2</div><div class="txt"><b>วิธีควบคุมการหลั่ง</b>Positive feedback · Negative feedback</div></div>
+          <div class="numcard" style="--accent:var(--c-pit)"><div class="num">3</div><div class="txt"><b>ส่วนของต่อมใต้สมอง</b>หน้า · กลาง · หลัง</div></div>
+          <div class="numcard" style="--accent:var(--c-pit)"><div class="num">6</div><div class="txt"><b>ฮอร์โมนจากต่อมใต้สมองส่วนหน้า</b>TSH, ACTH, Gn, GH, Prolactin, Endorphin</div></div>
+          <div class="numcard" style="--accent:var(--c-pit)"><div class="num">2</div><div class="txt"><b>ฮอร์โมนต่อมใต้สมองส่วนหลัง</b>ADH · Oxytocin</div></div>
+          <div class="numcard" style="--accent:var(--c-pit)"><div class="num">4</div><div class="txt"><b>ความผิดปกติของ GH</b>Dwarfism · Simmond's · Gigantism · Acromegaly</div></div>
+          <div class="numcard" style="--accent:var(--c-pit)"><div class="num">9</div><div class="txt"><b>กรดอะมิโนใน ADH และ Oxytocin</b>ทั้งคู่มี 9 ตัวเท่ากัน</div></div>
+          <div class="numcard" style="--accent:var(--c-thy)"><div class="num">2</div><div class="txt"><b>เซลล์ในต่อมไทรอยด์</b>ฟอลลิเคิล (T3/T4) · C-cell (Calcitonin)</div></div>
+          <div class="numcard" style="--accent:var(--c-thy)"><div class="num">4</div><div class="txt"><b>อะตอมไอโอดีนใน T4</b>tetra = 4 (T3 มี 3 อะตอม)</div></div>
+          <div class="numcard" style="--accent:var(--c-para)"><div class="num">4</div><div class="txt"><b>จำนวนต่อมพาราไทรอยด์</b>ขนาดเท่าเมล็ดข้าว 4 ต่อม</div></div>
+          <div class="numcard" style="--accent:var(--c-para)"><div class="num">3</div><div class="txt"><b>PTH ทำ 3 อย่าง</b>เพิ่ม Ca จากกระดูก+ไต+ลำไส้ (Calcitonin ก็ 3 อย่างเหมือนกันแต่ทิศตรงข้าม)</div></div>
+          <div class="numcard" style="--accent:var(--c-panc)"><div class="num">2</div><div class="txt"><b>ฮอร์โมนตับอ่อน</b>Insulin (β) · Glucagon (α)</div></div>
+          <div class="numcard" style="--accent:var(--c-panc)"><div class="num">2</div><div class="txt"><b>โรคเบาหวาน</b>ชนิดที่ 1 (สร้างไม่ได้) · ชนิดที่ 2 (ดื้อฮอร์โมน)</div></div>
+          <div class="numcard" style="--accent:var(--c-adr)"><div class="num">2</div><div class="txt"><b>ส่วนของต่อมหมวกไต</b>Cortex (นอก) · Medulla (ใน)</div></div>
+          <div class="numcard" style="--accent:var(--c-adr)"><div class="num">3</div><div class="txt"><b>กลุ่มฮอร์โมน Adrenal cortex</b>กลูโคคอร์ติคอยด์ · มิเนราโลคอร์ติคอยด์ · ฮอร์โมนเพศ</div></div>
+          <div class="numcard" style="--accent:var(--c-adr)"><div class="num">2</div><div class="txt"><b>ฮอร์โมน Adrenal medulla</b>Epinephrine · Norepinephrine</div></div>
+          <div class="numcard" style="--accent:var(--c-gon)"><div class="num">2</div><div class="txt"><b>Gonadotropin (Gn)</b>LH · FSH</div></div>
+          <div class="numcard" style="--accent:var(--c-gon)"><div class="num">2</div><div class="txt"><b>ฮอร์โมนเพศหญิงหลัก</b>Estrogen (จากฟอลลิเคิล) · Progesterone (จากคอร์ปัสลูเทียม)</div></div>
+          <div class="numcard" style="--accent:var(--c-misc)"><div class="num">2</div><div class="txt"><b>ฮอร์โมนลำไส้เล็ก</b>Secretin · CCK</div></div>
+        </div>
+
+        <div class="mnemo"><b>วิธีใช้แพทเทิร์นตัวเลข</b> เวลาทบทวน ให้ปิดคอลัมน์ขวาแล้วดูแค่ "ชื่อเรื่อง + ตัวเลข" ถ้านึกรายละเอียดออกครบตามจำนวนนั้นแปลว่าจำได้แม่นแล้ว เช่น เห็นเลข "3" คู่กับ "PTH" ต้องนึกออกทันทีว่ามี 3 กลไก (กระดูก-ไต-ลำไส้) ถ้านึกได้แค่ 2 แปลว่ายังจำไม่ครบ ต้องกลับไปเปิดทวนอีกรอบ</div>
+      </section>
+
+      <hr class="sep">
+
+      <!-- ===================== INTRO ===================== -->
+      <section id="intro" class="gland" style="--accent:var(--c-basic)">
+        <div class="gland-head">
+          <div class="gland-num">0</div>
+          <div><h2>พื้นฐานของฮอร์โมน</h2></div>
+        </div>
+
+        <div class="card">
+          <h4>ต่อมมีท่อ vs ต่อมไร้ท่อ</h4>
+          <div class="disorder-grid">
+            <div class="d-card low">
+              <b>ต่อมมีท่อ (exocrine gland)</b>
+              สร้างสารเคมีแล้วส่งผ่าน "ท่อ" ของตัวเองไปยังตำแหน่งที่ออกฤทธิ์โดยตรง เช่น ต่อมน้ำลาย ต่อมเหงื่อ ต่อมน้ำตา ตับอ่อนส่วนที่สร้างเอนไซม์ย่อยอาหาร
+            </div>
+            <div class="d-card high">
+              <b>ต่อมไร้ท่อ (endocrine gland)</b>
+              ไม่มีท่อของตัวเอง ต้องอาศัย "หลอดเลือด" ลำเลียงสารออกไป จึงมีหลอดเลือดมาหล่อเลี้ยงเป็นจำนวนมาก สารที่หลั่งออกมาเรียกว่า <b>ฮอร์โมน</b>
+            </div>
+          </div>
+          <p class="subtle">⚑ อวัยวะบางชนิดมีทั้งสองแบบในอวัยวะเดียวกัน เช่น <b>ตับอ่อน</b> (สร้างเอนไซม์แบบมีท่อ + สร้างอินซูลิน/กลูคากอนแบบไร้ท่อ) และ <b>กระเพาะอาหาร</b></p>
+        </div>
+
+        <div class="card">
+          <h4>ต่อมไร้ท่อจำเป็น vs ไม่จำเป็น (สำคัญ — ออกสอบบ่อย)</h4>
+          <div class="disorder-grid">
+            <div class="d-card high">
+              <b>ต่อมไร้ท่อจำเป็น (essential)</b>
+              ขาดแล้ว<b>เสียชีวิตทันที</b> ได้แก่ ต่อมใต้สมอง, ต่อมไทรอยด์, ต่อมพาราไทรอยด์, ตับอ่อน (ไอสเลตออฟแลงเกอร์ฮานส์), ต่อมหมวกไตส่วนนอก (adrenal cortex)
+            </div>
+            <div class="d-card low">
+              <b>ต่อมไร้ท่อไม่จำเป็น (nonessential)</b>
+              ขาดแล้วไม่เสียชีวิตทันที แต่เกิดความผิดปกติในภายหลัง ได้แก่ ต่อมหมวกไตส่วนใน (adrenal medulla), ต่อมไพเนียล, ต่อมไทมัส, อวัยวะสืบพันธุ์ (อัณฑะ/รังไข่)
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h4>ประเภทของฮอร์โมน แบ่งตามโครงสร้างทางเคมี</h4>
+          <div class="tbl-wrap">
+            <table>
+              <tr><th>กลุ่ม</th><th>ลักษณะ</th><th>ตัวอย่าง</th><th>สมบัติการละลาย</th></tr>
+              <tr><td><b>1. โปรตีน/เพปไทด์</b></td><td>สายกรดอะมิโน</td><td>FSH, LH, TRH, GH, ADH, Oxytocin, Insulin</td><td>ละลายน้ำ</td></tr>
+              <tr><td><b>2. อนุพันธ์กรดอะมิโน (เอมีน)</b></td><td>ดัดแปลงจากกรดอะมิโน/กรดไขมัน</td><td>Epinephrine, Norepinephrine (ละลายน้ำ) และ ไทรอยด์ฮอร์โมน (ละลายลิพิด สะสมแบบคอลลอยด์)</td><td>ผสม — แล้วแต่ชนิด</td></tr>
+              <tr><td><b>3. สเตียรอยด์</b></td><td>สังเคราะห์จากคอเลสเตอรอล</td><td>ฮอร์โมนเพศ (เอสโตรเจน เทสโทสเตอโรน โพรเจสเตอโรน), ฮอร์โมนจากต่อมหมวกไต</td><td>ละลายลิพิด</td></tr>
+            </table>
+          </div>
+          <p class="subtle">นอกจากฮอร์โมนแล้ว เซลล์ประสาทยังสร้าง <b>ฮอร์โมนประสาท (neurohormone)</b> และ <b>สารสื่อประสาท (neurotransmitter)</b> เพื่อควบคุมอวัยวะภายในให้อยู่ในสภาพปกติ และมี <b>ฟีโรโมน</b> ซึ่งสร้างจากต่อมมีท่อ ใช้สื่อสารระหว่างตัวในสปีชีส์เดียวกัน (ไม่มีผลต่อร่างกายตัวเอง)</p>
+        </div>
+
+        <div class="card">
+          <h4>ฮอร์โมนจับกับเซลล์เป้าหมายอย่างไร (lock &amp; key)</h4>
+          <p>ฮอร์โมนแพร่ไปทั่วร่างกายทางกระแสเลือด แต่จะออกฤทธิ์เฉพาะกับ <b>เซลล์เป้าหมาย (target cell)</b> ที่มีตัวรับ (receptor) จำเพาะเท่านั้น</p>
+          <div class="tbl-wrap">
+            <table>
+              <tr><th>ชนิดฮอร์โมน</th><th>ตำแหน่งตัวรับ</th><th>ตัวอย่าง</th></tr>
+              <tr><td>ละลายน้ำ (เพปไทด์/โปรตีน, เอมีนบางชนิด)</td><td>ที่ <b>เยื่อหุ้มเซลล์</b></td><td>เอพิเนฟริน, นอร์เอพิเนฟริน, อินซูลิน</td></tr>
+              <tr><td>ละลายลิพิด (สเตียรอยด์, เอมีนบางชนิด)</td><td><b>ภายในเซลล์</b> (แพร่ผ่านเยื่อหุ้มเซลล์ได้)</td><td>ไทรอยด์ฮอร์โมน, ฮอร์โมนเพศ</td></tr>
+            </table>
+          </div>
+          <div class="mnemo"><b>จำง่าย ๆ</b> "ละลายน้ำ อยู่นอกบ้าน (เยื่อหุ้มเซลล์) / ละลายไขมัน เดินเข้าบ้านได้เลย (เข้าไปในเซลล์)" — เพราะลิพิดผ่านเยื่อหุ้มเซลล์ซึ่งเป็นไขมันสองชั้นได้ง่ายกว่า</div>
+          <p>ฮอร์โมนชนิดเดียวกันให้ผลต่างกันได้ตามชนิดเซลล์เป้าหมาย เช่น <b>อินซูลิน</b>: ที่ตับ → ยับยั้งสร้างกลูโคส/กระตุ้นสร้างไกลโคเจน, ที่กล้ามเนื้อ → นำกลูโคสไปใช้เป็นพลังงาน/สะสมไกลโคเจน, ที่เซลล์ไขมัน → นำกลูโคสไปสังเคราะห์ลิพิด</p>
+        </div>
+      </section>
+
+      <!-- ===================== CONTROL ===================== -->
+      <section id="control" class="gland" style="--accent:var(--c-basic)">
+        <div class="gland-head">
+          <div class="gland-num">✦</div>
+          <div><h2>การควบคุมการหลั่งฮอร์โมน</h2></div>
+        </div>
+
+        <div class="card">
+          <h4>1. Positive feedback (กระตุ้นย้อนกลับ)</h4>
+          <p>ผลของฮอร์โมนไปกระตุ้นให้มีการหลั่งฮอร์โมนนั้น<b>เพิ่มขึ้นต่อเนื่อง</b> เช่น การดูดนมของทารกอย่างสม่ำเสมอ กระตุ้นให้ต่อมใต้สมองหลั่งโพรแลกตินสร้างน้ำนมตลอดเวลา (และออกซิโทซินหลั่งน้ำนมออกมา)</p>
+          <div class="flow">
+            <div class="flow-step">ทารกดูดนม</div><div class="flow-arrow">→</div>
+            <div class="flow-step">ต่อมใต้สมองหลั่งโพรแลกติน</div><div class="flow-arrow">→</div>
+            <div class="flow-step">สร้างน้ำนมเพิ่ม</div><div class="flow-arrow">→</div>
+            <div class="flow-step">ทารกดูดนมต่อ (วนซ้ำ)</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h4>2. Negative feedback (ยับยั้งย้อนกลับ) — พบบ่อยที่สุดในร่างกาย</h4>
+          <p>ผลของฮอร์โมนส่งสัญญาณกลับไปยับยั้งต่อมไร้ท่อให้<b>หลั่งฮอร์โมนน้อยลง</b> เช่น เมื่อน้ำตาลในเลือดต่ำลง จะยับยั้งตับอ่อนไม่ให้หลั่งอินซูลินเพิ่ม</p>
+          <div class="flow">
+            <div class="flow-step">ตับอ่อนหลั่งอินซูลิน</div><div class="flow-arrow">→</div>
+            <div class="flow-step">น้ำตาลในเลือดลดลง</div><div class="flow-arrow">⊣</div>
+            <div class="flow-step" style="border-style:dashed;">ยับยั้งการหลั่งอินซูลิน<span class="flow-label">สัญญาณย้อนกลับ</span></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h4>ไฮโพทาลามัส (Hypothalamus) — ศูนย์เชื่อมประสาทกับต่อมไร้ท่อ</h4>
+          <p>อยู่ติดกับต่อมใต้สมอง ทำหน้าที่สร้าง <b>สารสื่อประสาท</b> และ <b>ฮอร์โมนประสาท (neurohormone)</b> จากเซลล์นิวโรซีครีทอรี (neurosecretory cell) แบ่งเป็น 2 กลุ่ม:</p>
+          <div class="tbl-wrap">
+            <table>
+              <tr><th>No.</th><th>กลุ่ม</th><th>ชื่อย่อ</th><th>หน้าที่</th></tr>
+              <tr><td><b>1</b></td><td rowspan="4"><b>Releasing hormone (RH)</b><br><span class="subtle">กระตุ้นต่อมใต้สมองส่วนหน้า</span></td><td>TRH</td><td>กระตุ้นหลั่ง TSH (No.7)</td></tr>
+              <tr><td><b>2</b></td><td>GnRH</td><td>กระตุ้นหลั่ง Gn (FSH No.10, LH No.9)</td></tr>
+              <tr><td><b>3</b></td><td>CRH</td><td>กระตุ้นหลั่ง ACTH (No.8)</td></tr>
+              <tr><td><b>4</b></td><td>GHRH</td><td>กระตุ้นหลั่ง GH (No.11)</td></tr>
+              <tr><td><b>5</b></td><td rowspan="2"><b>Inhibiting hormone (IH)</b><br><span class="subtle">ยับยั้งต่อมใต้สมองส่วนหน้า</span></td><td>GHIH</td><td>ยับยั้งหลั่ง GH (No.11)</td></tr>
+              <tr><td><b>6</b></td><td>PIH (Dopamine)</td><td>ยับยั้งหลั่ง Prolactin (No.12)</td></tr>
+            </table>
+          </div>
+          <p class="subtle">การควบคุมต่อกันเป็นทอด ๆ นี้เรียกว่า <b>hypothalamo-hypophyseal gland axis</b> — ไฮโพทาลามัส → ต่อมใต้สมอง → ต่อมปลายทาง เป็นรูปแบบที่ใช้ซ้ำกับเกือบทุกแกนฮอร์โมนในบทนี้</p>
+        </div>
+      </section>
+
+      <hr class="sep">
+
+      <!-- ===================== PITUITARY ===================== -->
+      <section id="pituitary" class="gland" style="--accent:var(--c-pit)">
+        <div class="gland-head">
+          <div class="gland-num">1</div>
+          <div><h2>ต่อมใต้สมอง <span class="eng">Pituitary Gland</span></h2></div>
+        </div>
+        <p class="section-intro">ต่อมไร้ท่อขนาดเล็กใต้ไฮโพทาลามัส แบ่งเป็น 3 ส่วน: <b>ส่วนหน้า</b> และ<b>ส่วนกลาง</b> (เจริญจากเยื่อบุผิวปาก เป็น "ต่อมไร้ท่อแท้จริง" สร้างฮอร์โมนได้เอง) และ<b>ส่วนหลัง</b> (เจริญจากเนื้อเยื่อประสาท ไม่ได้สร้างฮอร์โมนเอง เป็นเพียงที่เก็บและปล่อยฮอร์โมนประสาทจากไฮโพทาลามัส)</p>
+
+        <div class="card">
+          <h4>1.1 ต่อมใต้สมองส่วนหน้า (Anterior pituitary)</h4>
+          <span class="numchip"><span class="n">6</span> ฮอร์โมนจากส่วนนี้ — นับให้ครบทุกครั้ง!</span>
+          <div class="chiprow">
+            <span class="chip">TSH</span><span class="chip">ACTH</span><span class="chip">Gn (LH+FSH)</span><span class="chip">GH</span><span class="chip">Prolactin</span><span class="chip">Endorphin</span>
+          </div>
+          <div class="tbl-wrap">
+            <table>
+              <tr><th>No.</th><th>ฮอร์โมน</th><th>ควบคุมโดย</th><th>หน้าที่หลัก</th></tr>
+              <tr><td><b>7</b></td><td><b>TSH</b> (Thyroid-stimulating hormone / thyrotropin)</td><td>TRH (No.1)</td><td>กระตุ้นต่อมไทรอยด์ให้หลั่งไทรอกซินเพิ่มขึ้น และกระตุ้นการนำไอโอดีนเข้าสู่ต่อมไทรอยด์</td></tr>
+              <tr><td><b>8</b></td><td><b>ACTH</b> (Adrenocorticotropic hormone / corticotropin)</td><td>CRH (No.3)</td><td>กระตุ้นต่อมหมวกไตส่วนนอก (adrenal cortex) ให้หลั่งฮอร์โมนเพิ่มขึ้น</td></tr>
+              <tr><td><b>9,10</b></td><td><b>Gn</b> (Gonadotropin) แบ่งเป็น LH (No.9), FSH (No.10)</td><td>GnRH (No.2)</td><td>ควบคุมระบบสืบพันธุ์ (ดูรายละเอียดด้านล่าง)</td></tr>
+              <tr><td><b>11</b></td><td><b>GH</b> (Growth hormone)</td><td>GHRH (No.4) กระตุ้น / GHIH (No.5) ยับยั้ง</td><td>กระตุ้นการเจริญเติบโตของร่างกาย โดยเฉพาะเด็ก/วัยรุ่น</td></tr>
+              <tr><td><b>12</b></td><td><b>Prolactin</b> (mammotropin)</td><td>PIH (No.6) ยับยั้ง</td><td>กระตุ้นการ<b>สร้าง</b>น้ำนม (คู่กับ oxytocin No.16 ที่กระตุ้นการ<b>หลั่ง</b>น้ำนม)</td></tr>
+              <tr><td><b>13</b></td><td><b>Endorphin</b></td><td>—</td><td>ฤทธิ์คล้ายมอร์ฟีน ระงับปวด สร้างความสุข/ความคิดสร้างสรรค์ หลั่งเมื่อออกกำลังกาย ทานอาหารที่ชอบ ฟังเพลงที่ชอบ</td></tr>
+            </table>
+          </div>
+          <div class="mnemo"><b>จำคู่ Prolactin vs Oxytocin</b> "โพรแลกติน = สร้างนม (Produce) / ออกซิโทซิน = ปล่อยนม (Out)" — เสียงคล้ายกันช่วยจำ P สร้าง, O ปล่อย</div>
+        </div>
+
+        <div class="card">
+          <h4>LH และ FSH ในเพศชาย vs เพศหญิง (ออกสอบบ่อยมาก)</h4>
+          <div class="tbl-wrap">
+            <table>
+              <tr><th>ฮอร์โมน</th><th>ในเพศหญิง</th><th>ในเพศชาย</th></tr>
+              <tr><td><b>LH</b></td><td>กระตุ้นการตกไข่ และเกิด<b>คอร์ปัสลูเทียม</b> (สร้างโพรเจสเตอโรนต่อ)</td><td>กระตุ้นกลุ่มเซลล์<b>เลย์ดิก (Leydig cell)</b> ให้สร้างเทสโทสเตอโรน</td></tr>
+              <tr><td><b>FSH</b></td><td>กระตุ้นการเจริญของ<b>ฟอลลิเคิล (follicle)</b> ในรังไข่ → สร้างเอสโตรเจน</td><td>กระตุ้นการเจริญของอัณฑะ และกระตุ้น<b>เซอร์โทลิเซลล์ (Sertoli cell)</b> ให้สร้างอสุจิ</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <h4>ความผิดปกติของ GH (จุดฮิตในข้อสอบ)</h4>
+          <span class="numchip"><span class="n">4</span> โรค — เด็ก 2 (น้อย/มาก) × ผู้ใหญ่ 2 (น้อย/มาก)</span>
+          <div class="disorder-grid">
+            <div class="d-card low">
+              <b>หลั่งน้อยเกินไป</b>
+              เด็ก → <b>Dwarfism</b> (แคระ) ตัวเตี้ย แขนขาสั้น<br>
+              ผู้ใหญ่ → <b>Simmond's disease</b> น้ำตาลในเลือดน้อย ผอม แก่เร็ว ผิวเหี่ยวย่น
+            </div>
+            <div class="d-card high">
+              <b>หลั่งมากเกินไป</b>
+              เด็ก → <b>Gigantism</b> กระดูกแขน-ขายาว ตัวสูงใหญ่ผิดปกติ (อายุสั้น)<br>
+              ผู้ใหญ่ → <b>Acromegaly</b> กระดูกบางส่วนหนาขึ้น เช่น กระดูกหน้า มือ ใหญ่ผิดปกติ (เพราะกระดูกยาวปิดปลายแล้ว จึงหนาแทนที่จะยาว)
+            </div>
+          </div>
+          <p class="subtle">⚑ ข้อควรระวัง: Gigantism เกิดใน<b>เด็ก</b> (กระดูกยังยาวได้) ส่วน Acromegaly เกิดใน<b>ผู้ใหญ่</b> (กระดูกยาวไม่ได้แล้ว จึงหนาแทน) — ข้อสอบชอบสลับให้ผิด</p>
+        </div>
+
+        <div class="card">
+          <h4>1.2 ต่อมใต้สมองส่วนกลาง (Pars intermedia)</h4>
+          <span class="numchip"><span class="n">14</span> MSH</span>
+          <p><b>MSH</b> (Melanocyte-stimulating hormone) โครงสร้างคล้าย ACTH ทำหน้าที่กระตุ้นเซลล์<b>เมลาโนไซต์</b>ให้สร้าง<b>เมลานิน</b> (รงควัตถุสีน้ำตาล-ดำ) และกระจายเมลานินทำให้สีผิวเข้มขึ้น พบชัดเจนในปลา สัตว์สะเทินน้ำสะเทินบก สัตว์เลื้อยคลาน ใช้พรางตัว — ในคนมีบทบาทไม่ชัดเจน แต่เกี่ยวข้องกับผิวเข้มขึ้นเมื่อโดนแดด (แบบช้า ๆ)</p>
+        </div>
+
+        <div class="card">
+          <h4>1.3 ต่อมใต้สมองส่วนหลัง (Posterior pituitary)</h4>
+          <p class="subtle">⚑ ไม่ได้สร้างฮอร์โมนเอง — เป็นแค่ที่เก็บและปล่อยฮอร์โมนประสาทที่สร้างจากไฮโพทาลามัส (ปลายแอกซอนของเซลล์นิวโรซีครีทอรียื่นมาสิ้นสุดที่นี่)</p>
+          <div class="tbl-wrap">
+            <table>
+              <tr><th>No.</th><th>ฮอร์โมน</th><th>โครงสร้าง</th><th>หน้าที่</th></tr>
+              <tr><td><b>15</b></td><td><b>ADH</b> (Antidiuretic hormone / vasopressin)</td><td>โปรตีน 9 กรดอะมิโน</td><td>ควบคุมการดูดกลับน้ำที่ท่อหน่วยไต + กระตุ้นหลอดเลือดแดงหดตัว (ขาด → เบาจืด)</td></tr>
+              <tr><td><b>16</b></td><td><b>Oxytocin</b></td><td>โปรตีน 9 กรดอะมิโน</td><td>กระตุ้นมดลูกบีบตัว (ใช้ช่วยคลอด) + กระตุ้นกล้ามเนื้อรอบต่อมน้ำนมบีบตัวขับน้ำนม</td></tr>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <hr class="sep">
+
+      <!-- ===================== THYROID ===================== -->
+      <section id="thyroid" class="gland" style="--accent:var(--c-thy)">
+        <div class="gland-head">
+          <div class="gland-num">2</div>
+          <div><h2>ต่อมไทรอยด์ <span class="eng">Thyroid Gland</span></h2></div>
+        </div>
+        <p class="section-intro">ต่อมไร้ท่อที่<b>ใหญ่ที่สุดในร่างกาย</b> อยู่บริเวณลำคอติดกล่องเสียง รูปร่างคล้ายผีเสื้อ 2 พู มีหลอดเลือดมาเลี้ยงมาก</p>
+
+        <div class="card">
+          <h4>เซลล์ 2 ชนิดในต่อมไทรอยด์</h4>
+          <span class="numchip"><span class="n">2</span> เซลล์ = 2 ฮอร์โมน จำคู่กันเสมอ</span>
+          <div class="tbl-wrap">
+            <table>
+              <tr><th>No.</th><th>เซลล์</th><th>สร้างฮอร์โมน</th><th>รายละเอียด</th></tr>
+              <tr><td><b>17</b></td><td><b>ไทรอยด์ฟอลลิเคิล</b> (follicular cell)</td><td>ไทรอกซิน (T3, T4)</td><td>เก็บสะสมในรูปคอลลอยด์ (โปรตีนไทโรโกลบูลิน)</td></tr>
+              <tr><td><b>18</b></td><td><b>พาราฟอลลิคิวลาร์เซลล์</b> (C-cell)</td><td>แคลซิโทนิน (Calcitonin)</td><td>ควบคุมระดับแคลเซียมในเลือด</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <h4>ไทรอกซิน (T3 / T4) — แกน HPT axis</h4>
+          <div class="flow">
+            <div class="flow-step">ไฮโพทาลามัส<span class="flow-label">หลั่ง TRH</span></div><div class="flow-arrow">→</div>
+            <div class="flow-step">ต่อมใต้สมองหน้า<span class="flow-label">หลั่ง TSH</span></div><div class="flow-arrow">→</div>
+            <div class="flow-step">ต่อมไทรอยด์<span class="flow-label">หลั่ง T3/T4</span></div>
+          </div>
+          <p>ไทรอกซินประกอบจากธาตุ<b>ไอโอดีน</b> 4 อะตอมเกาะกับกรดอะมิโนไทโรซีน เรียก <b>T4 (tetraiodothyronine)</b> — พบมากในเลือด แต่เมื่อถึงเซลล์เป้าหมายจะเปลี่ยนเป็น <b>T3 (triiodothyronine)</b> ซึ่งออกฤทธิ์ได้ดีกว่า (active กว่า)</p>
+          <p><b>หน้าที่ของ T3/T4:</b> กระตุ้นเมแทบอลิซึม, เพิ่มการใช้ออกซิเจน, กระตุ้นอัตราการเต้นหัวใจและความดันเลือด, กระตุ้นเมแทบอลิซึมคาร์โบไฮเดรต/ไขมัน, สลายไกลโคเจนที่ตับเป็นกลูโคส, เร่งกระบวนการเปลี่ยนรูปร่าง (metamorphosis) ในกบ</p>
+        </div>
+
+        <div class="card">
+          <h4>ความผิดปกติของไทรอกซิน (จุดออกสอบสำคัญที่สุดของบท)</h4>
+          <div class="disorder-grid">
+            <div class="d-card high">
+              <b>Hyperthyroidism — ไทรอกซินสูงกว่าปกติ</b>
+              เช่น <b>Grave's disease</b> (โรคภูมิต้านตนเอง) → ไทรอกซินสูง แต่ <b>TSH ต่ำ</b> (negative feedback) อาการ: เมแทบอลิซึมสูง ร้อน เหงื่อออกมาก ตาโปน (ไขมันสะสมหลังลูกตา) เรียกว่า <b>คอพอกเป็นพิษ (toxic goiter)</b>
+            </div>
+            <div class="d-card low">
+              <b>Hypothyroidism — ไทรอกซินต่ำกว่าปกติ</b>
+              มักเกิดจาก<b>ขาดไอโอดีน</b> → ไทรอยด์สร้างไทรอกซินไม่ได้ → ต่อมใต้สมองหลั่ง TSH กระตุ้นตลอดเวลา (แต่ไม่มีไอโอดีนให้ใช้) → ต่อมไทรอยด์ทำงานหนักจนโต เรียก <b>คอพอกธรรมดา (simple goiter)</b>
+            </div>
+          </div>
+          <div class="tbl-wrap">
+            <table>
+              <tr><th>ภาวะขาดไทรอกซินตั้งแต่</th><th>ชื่อโรค</th><th>อาการ</th></tr>
+              <tr><td><b>วัยเด็ก</b></td><td>เครทินิซึม (Cretinism)</td><td>พัฒนาการทางร่างกายและสมองด้อยลง ร่างกายเตี้ยแคระ สติปัญญาต่ำ</td></tr>
+              <tr><td><b>วัยผู้ใหญ่</b></td><td>มิกซีดีมา (Myxedema)</td><td>เมแทบอลิซึมต่ำ เหนื่อยง่าย กล้ามเนื้ออ่อนแรง ทนหนาวไม่ได้ หัวใจโต ซึม ความจำเสื่อม บวมน้ำ</td></tr>
+            </table>
+          </div>
+          <div class="mnemo"><b>จำง่าย</b> "ตาโปน ใจสั่น ผอมลง = คอพอก<b>เป็นพิษ</b> (hyper) / ตัวบวม เฉื่อยชา ทนหนาวไม่ได้ = มิกซีดีมา (hypo)" — อาการตรงข้ามกันแทบทุกข้อ</div>
+        </div>
+      </section>
+
+      <hr class="sep">
+
+      <!-- ===================== PARATHYROID ===================== -->
+      <section id="parathyroid" class="gland" style="--accent:var(--c-para)">
+        <div class="gland-head">
+          <div class="gland-num">3</div>
+          <div><h2>ต่อมพาราไทรอยด์ <span class="eng">Parathyroid Gland</span></h2></div>
+        </div>
+        <p class="section-intro">ต่อมขนาดเล็ก 4 ต่อม ขนาดเท่าเมล็ดข้าว อยู่ด้านหลังต่อมไทรอยด์ สร้าง <b>พาราทอร์โมน (Parathormone, PTH)</b> ซึ่งทำงาน<b>ตรงข้าม</b>กับแคลซิโทนินจากต่อมไทรอยด์ เพื่อรักษาสมดุลแคลเซียมในเลือด</p>
+        <span class="numchip"><span class="n">4</span> ต่อม</span><span class="numchip"><span class="n">3</span> กลไกของ PTH (กระดูก-ไต-ลำไส้)</span>
+
+        <div class="vs-box">
+          <div class="vs-side up">
+            <b>PTH (พาราทอร์โมน) — No.19</b>
+            <b>เพิ่ม</b>ระดับ Ca²⁺ ในเลือด โดย:
+            <ul><li>เพิ่มการสลายแคลเซียมจากกระดูก</li><li>เพิ่มการดูดกลับ Ca²⁺ ที่ไต</li><li>เพิ่มการดูดซึม Ca²⁺ ที่ลำไส้เล็ก</li></ul>
+          </div>
+          <div class="vs-mid">ตรงข้ามกัน<br>↕</div>
+          <div class="vs-side down">
+            <b>Calcitonin (จากต่อมไทรอยด์) — No.18</b>
+            <b>ลด</b>ระดับ Ca²⁺ ในเลือด โดย:
+            <ul><li>กระตุ้นการสะสมแคลเซียมที่กระดูก</li><li>ลดการดูดกลับ Ca²⁺ ที่ไต</li><li>ลดการดูดซึม Ca²⁺ ที่ลำไส้เล็ก</li></ul>
+          </div>
+        </div>
+
+        <div class="card">
+          <h4>ความผิดปกติ</h4>
+          <div class="disorder-grid">
+            <div class="d-card low">
+              <b>PTH น้อยเกินไป</b>
+              Ca²⁺ ในเลือดต่ำ → กล้ามเนื้อเกร็ง ชักกระตุก หัวใจบีบตัวอ่อนลง (อาจเสียชีวิต) — รักษาด้วยการฉีดแคลเซียมพร้อมวิตามินดี
+            </div>
+            <div class="d-card high">
+              <b>PTH มากเกินไป</b>
+              สลายแคลเซียมจากฟันและกระดูกมากเกิน → กระดูกเปราะบาง เสี่ยง<b>โรคกระดูกพรุน</b>
+            </div>
+          </div>
+          <p class="subtle">💡 <b>โรคกระดูกพรุน</b> เกิดจากหลายสาเหตุ: ได้รับแคลเซียมไม่พอ, ต่อมไทรอยด์/พาราไทรอยด์ผิดปกติ, ขาดวิตามินดี, สูบบุหรี่, ดื่มแอลกอฮอล์/คาเฟอีน, ขาดฮอร์โมนเอสโตรเจน</p>
+        </div>
+      </section>
+
+      <hr class="sep">
+
+      <!-- ===================== PINEAL ===================== -->
+      <section id="pineal" class="gland" style="--accent:var(--c-pin)">
+        <div class="gland-head">
+          <div class="gland-num">4</div>
+          <div><h2>ต่อมไพเนียล <span class="eng">Pineal Gland</span></h2></div>
+        </div>
+        <div class="card">
+          <p>อยู่ระหว่างเซรีบรัมซีกซ้าย-ขวา สร้างฮอร์โมน <b>เมลาโทนิน (Melatonin) — No.20</b> ซึ่งไวต่อแสง (มีเส้นประสาทซิมพาเทติกควบคุม) หน้าที่:</p>
+          <ul>
+            <li>บอกเวลารอบวัน (biological clock / นาฬิกาชีวภาพ)</li>
+            <li>เกี่ยวข้องกับการสลายอาหารในร่างกาย</li>
+            <li><b>ยับยั้ง</b>การเจริญของอวัยวะสืบพันธุ์ไม่ให้โตเร็วเกินไปก่อนวัยเจริญพันธุ์ (ยับยั้ง LH, FSH)</li>
+          </ul>
+          <div class="vs-box">
+            <div class="vs-side down"><b>ไม่มีแสง (กลางคืน)</b>หลั่งเมลาโทนิน<b>มาก</b> → ทำให้ง่วง/หลับ; ในสัตว์บางชนิดฤดูหนาว (กลางคืนยาว) หลั่งมาก</div>
+            <div class="vs-mid">↕</div>
+            <div class="vs-side up"><b>มีแสง (กลางวัน)</b>หลั่งเมลาโทนิน<b>น้อย/ไม่หลั่ง</b> → ตื่นตัว; ฤดูร้อน (กลางคืนสั้น) หลั่งน้อย</div>
+          </div>
+          <p class="subtle">💡 เด็กแรกเกิดผลิตเมลาโทนินมาก → นอนหลับได้นาน / ผู้สูงอายุผลิตน้อยลง → นอนหลับสั้นลง / อาการ jet lag เกิดจากระดับเมลาโทนินปรับตัวไม่ทันเขตเวลาใหม่</p>
+          <p class="subtle">ในสัตว์สะเทินน้ำสะเทินบก เมลาโทนินทำให้<b>สีผิวซีดลง</b> — ตรงข้ามกับ MSH ที่ทำให้สีผิวเข้มขึ้น</p>
+        </div>
+      </section>
+
+      <hr class="sep">
+
+      <!-- ===================== THYMUS ===================== -->
+      <section id="thymus" class="gland" style="--accent:var(--c-thym)">
+        <div class="gland-head">
+          <div class="gland-num">5</div>
+          <div><h2>ต่อมไทมัส <span class="eng">Thymus Gland</span></h2></div>
+        </div>
+        <div class="card">
+          <p>อยู่ระหว่างกระดูกอกกับหลอดเลือดใหญ่ของหัวใจ เจริญตั้งแต่อยู่ในครรภ์ และ<b>ฝ่อลงเมื่ออายุมากขึ้น</b></p>
+          <p>สร้างฮอร์โมน <b>ไทโมซิน (Thymosin) — No.21</b> ทำหน้าที่กระตุ้นการแบ่งเซลล์และพัฒนาการของเม็ดเลือดขาว<b>ลิมโฟไซต์ชนิด T</b> (T-cell) — จึงเกี่ยวข้องกับ<b>ระบบภูมิคุ้มกัน</b>ของร่างกาย</p>
+        </div>
+      </section>
+
+      <hr class="sep">
+
+      <!-- ===================== PANCREAS ===================== -->
+      <section id="pancreas" class="gland" style="--accent:var(--c-panc)">
+        <div class="gland-head">
+          <div class="gland-num">6</div>
+          <div><h2>ตับอ่อน <span class="eng">Pancreas — Islets of Langerhans</span></h2></div>
+        </div>
+        <p class="section-intro">กลุ่มเซลล์ไอสเลตออฟแลงเกอร์ฮานส์ (ตั้งชื่อตามผู้ค้นพบ Paul Langerhans) กระจายเป็นหย่อม ๆ ในตับอ่อน มีหลอดเลือดมาเลี้ยงมาก — ค้นพบอินซูลินโดย Banting และ Best (ได้รางวัลโนเบล พ.ศ. 2466)</p>
+
+        <span class="numchip"><span class="n">2</span> เซลล์ (α, β) = 2 ฮอร์โมน ตรงข้ามกัน</span>
+        <div class="vs-box">
+          <div class="vs-side down">
+            <b>อินซูลิน (Insulin) — No.22</b>
+            สร้างจาก<b>เซลล์บีตา (β-cell)</b> — <b>ลด</b>น้ำตาลในเลือด โดยเปลี่ยนกลูโคสเป็นไกลโคเจนเก็บที่ตับและกล้ามเนื้อ
+          </div>
+          <div class="vs-mid">ตรงข้ามกัน<br>↕</div>
+          <div class="vs-side up">
+            <b>กลูคากอน (Glucagon) — No.23</b>
+            สร้างจาก<b>เซลล์แอลฟา (α-cell)</b> — <b>เพิ่ม</b>น้ำตาลในเลือด โดยสลายไกลโคเจนที่ตับและกล้ามเนื้อให้เป็นกลูโคส
+          </div>
+        </div>
+
+        <div class="card">
+          <h4>โรคเบาหวาน (Diabetes mellitus)</h4>
+          <div class="disorder-grid">
+            <div class="d-card high">
+              <b>ชนิดที่ 1</b>
+              เซลล์บีตาถูกทำลาย <b>สร้างอินซูลินไม่ได้</b> → น้ำตาลในเลือดสูง
+            </div>
+            <div class="d-card high">
+              <b>ชนิดที่ 2</b>
+              เซลล์บีตาสร้างอินซูลินได้ปกติ แต่<b>ตัวรับอินซูลิน</b>ที่ตับ/กล้ามเนื้อผิดปกติ (ดื้ออินซูลิน) → นำน้ำตาลเข้าเซลล์ไม่ได้ → น้ำตาลในเลือดสูง
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="sep">
+
+      <!-- ===================== ADRENAL ===================== -->
+      <section id="adrenal" class="gland" style="--accent:var(--c-adr)">
+        <div class="gland-head">
+          <div class="gland-num">7</div>
+          <div><h2>ต่อมหมวกไต <span class="eng">Adrenal Gland</span></h2></div>
+        </div>
+        <p class="section-intro">อยู่เหนือไตทั้งสองข้าง แบ่งเป็น <b>เนื้อเยื่อชั้นนอก (adrenal cortex)</b> และ <b>เนื้อเยื่อชั้นใน (adrenal medulla)</b></p>
+
+        <div class="card">
+          <h4>7.1 ต่อมหมวกไตส่วนนอก (Adrenal cortex) — สร้างฮอร์โมน 3 กลุ่มหลัก</h4>
+          <span class="numchip"><span class="n">3</span> กลุ่มฮอร์โมน = 3 แถวในตาราง จำเรียงไว้เลย</span>
+          <div class="tbl-wrap">
+            <table>
+              <tr><th>กลุ่มฮอร์โมน</th><th>ตัวอย่าง/หน้าที่</th><th>หลั่งน้อยไป</th><th>หลั่งมากไป</th></tr>
+              <tr>
+                <td><b>กลูโคคอร์ติคอยด์</b><br><span class="subtle">ควบคุมเมแทบอลิซึมของคาร์โบไฮเดรต</span></td>
+                <td><b>คอร์ติซอล (Cortisol) — No.24</b>: เพิ่มน้ำตาลในเลือด, สลายไขมัน/สร้างกลูโคสจากกรดอะมิโน, หลั่งมากเมื่อเครียด</td>
+                <td><b>Addison's disease</b></td>
+                <td><b>Cushing's syndrome</b></td>
+              </tr>
+              <tr>
+                <td><b>มิเนราโลคอร์ติคอยด์</b><br><span class="subtle">ควบคุมสมดุลน้ำ/แร่ธาตุ</span></td>
+                <td><b>แอลโดสเทอโรน (Aldosterone) — No.25</b>: ดูดกลับน้ำ+โซเดียมที่ไต, ขับโพแทสเซียมออก</td>
+                <td>โรคเบาเค็ม (สูญเสียน้ำ/โซเดียมมาก)</td>
+                <td>ความดันเลือดสูง บวมน้ำ</td>
+              </tr>
+              <tr>
+                <td><b>ฮอร์โมนเพศ — No.26</b><br><span class="subtle">สร้างปริมาณน้อย</span></td>
+                <td>เอสโตรเจน โพรเจสเตอโรน เทสโทสเตอโรน (ปริมาณน้อยกว่าจากอัณฑะ/รังไข่มาก)</td>
+                <td>—</td>
+                <td>เด็กเป็นหนุ่มสาวเร็วผิดปกติ (precocious puberty)</td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="disorder-grid">
+            <div class="d-card low">
+              <b>Addison's disease</b> — คอร์ติซอลน้อยเกินไป (ต่อมถูกทำลาย)
+              ซูบผอม ผิวหนังตกกระ มือ/ฟันเหลือง เป็นลม ชัก ร่างกายรักษาสมดุลแร่ธาตุไม่ได้ → อาจเสียชีวิต
+            </div>
+            <div class="d-card high">
+              <b>Cushing's syndrome</b> — คอร์ติซอลมากเกินไป
+              หน้ากลมแดง (moon face) ไขมันสะสมที่ท้อง/หัวไหล่ แต่แขนขาลีบ ความดันเลือดสูง กล้ามเนื้ออ่อนแรง
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h4>7.2 ต่อมหมวกไตส่วนใน (Adrenal medulla)</h4>
+          <p>สร้าง <b>เอพิเนฟริน (Epinephrine) — No.27</b> และ <b>นอร์เอพิเนฟริน (Norepinephrine) — No.28</b> — ควบคุมโดยระบบประสาท<b>ซิมพาเทติก</b> ออกฤทธิ์เหมือนกัน คือ ฮอร์โมน "สู้หรือหนี" (fight or flight):</p>
+          <ul>
+            <li>เพิ่มน้ำตาลในเลือด</li>
+            <li>กระตุ้นหัวใจเต้นเร็วขึ้น ความดันเลือดสูง</li>
+            <li>คลายตัวของหลอดเลือดขนาดเล็กที่หัวใจและกล้ามเนื้อโครงร่าง (เลือดไปเลี้ยงมากขึ้น)</li>
+            <li>หดตัวของหลอดเลือดขนาดเล็กที่ทางเดินอาหารและไต (เลือดไปเลี้ยงน้อยลง — ไปเน้นที่กล้ามเนื้อแทน)</li>
+          </ul>
+          <p class="subtle">💡 ตัวอย่างคลาสสิก: คนยกของหนักหนีไฟไหม้ได้ เพราะต่อมหมวกไตส่วนในถูกกระตุ้นให้หลั่งฮอร์โมนกลุ่มนี้มากกว่าปกติ</p>
+        </div>
+      </section>
+
+      <hr class="sep">
+
+      <!-- ===================== GONADS ===================== -->
+      <section id="gonads" class="gland" style="--accent:var(--c-gon)">
+        <div class="gland-head">
+          <div class="gland-num">8</div>
+          <div><h2>อวัยวะสืบพันธุ์ <span class="eng">Testes &amp; Ovaries</span></h2></div>
+        </div>
+        <p class="section-intro">อัณฑะและรังไข่ นอกจากสร้างเซลล์สืบพันธุ์แล้ว ยังทำหน้าที่เป็นต่อมไร้ท่อ สร้างฮอร์โมนกลุ่ม<b>สเตียรอยด์</b></p>
+
+        <div class="card">
+          <h4>เพศชาย — เทสโทสเตอโรน (Testosterone) — No.29</h4>
+          <p>สร้างจากกลุ่ม<b>เซลล์เลย์ดิก (Leydig cell)</b> ในอัณฑะ (ถูกกระตุ้นโดย LH) ทำหน้าที่ควบคุม<b>ลักษณะเพศขั้นที่ 2</b> ของเพศชาย เช่น มีเครา หนวด ขนที่อวัยวะเพศ ลูกกระเดือกโต เสียงห้าว</p>
+        </div>
+
+        <div class="card">
+          <h4>เพศหญิง — เอสโตรเจนและโพรเจสเตอโรน</h4>
+          <div class="tbl-wrap">
+            <table>
+              <tr><th>ฮอร์โมน</th><th>สร้างจาก</th><th>หน้าที่</th></tr>
+              <tr><td><b>เอสโตรเจน (Estrogen) — No.30</b></td><td>ฟอลลิเคิล (follicle) ที่กำลังเจริญ</td><td>ควบคุมลักษณะเพศขั้นที่ 2 ของหญิง (เสียงแหลม สะโพกผาย หน้าอกขยาย) หลั่งมากช่วงก่อนตกไข่ กระตุ้นการซ่อมแซมผนังมดลูก</td></tr>
+              <tr><td><b>โพรเจสเตอโรน (Progesterone) — No.31</b></td><td>คอร์ปัสลูเทียม (corpus luteum)</td><td>ทำให้ผนังมดลูกหนาตัวรองรับตัวอ่อน หลั่งมากหลังตกไข่ และยับยั้งการหลั่ง LH (ไม่ให้ตกไข่ซ้ำในรอบเดียวกัน)</td></tr>
+            </table>
+          </div>
+          <p class="subtle"><b>ฟอลลิเคิล (follicle):</b> หุ้มเซลล์ไข่ เจริญขึ้นเมื่อมี FSH กระตุ้น เมื่อเจริญเต็มที่จะเกิดช่องว่างเก็บฮอร์โมนเอสโตรเจน — ฟอลลิเคิลโตขึ้นแต่ไข่ขนาดเท่าเดิม ไข่จึงไปเกาะผนังฟอลลิเคิลด้านใดด้านหนึ่ง</p>
+          <div class="mnemo"><b>กลไกยาคุมกำเนิด</b> ยาคุมที่มีเอสโตรเจน+โพรเจสเตอโรน ทำให้ระดับฮอร์โมนสองตัวนี้สูงตลอด → <b>ยับยั้งการหลั่ง GnRH</b> จากไฮโพทาลามัส → FSH/LH ไม่หลั่ง → ไม่มีการตกไข่ (คำตอบข้อสอบเก่าคือ "ยับยั้งการหลั่ง GnRH" ไม่ใช่ยับยั้งต่อมใต้สมองโดยตรง)</div>
+        </div>
+      </section>
+
+      <hr class="sep">
+
+      <!-- ===================== OTHERS ===================== -->
+      <section id="others" class="gland" style="--accent:var(--c-misc)">
+        <div class="gland-head">
+          <div class="gland-num">9+</div>
+          <div><h2>อวัยวะอื่นที่สร้างฮอร์โมนได้</h2></div>
+        </div>
+
+        <div class="card">
+          <h4>9. รก (Placenta)</h4>
+          <p>เมื่อเอ็มบริโอฝังตัวที่ผนังมดลูก รกจะสร้างฮอร์โมน <b>HCG (Human Chorionic Gonadotropin) — No.32</b> ทำหน้าที่รักษาสภาพคอร์ปัสลูเทียมในรังไขให้เจริญต่อไป (สร้างเอสโตรเจน/โพรเจสเตอโรนต่อเนื่อง) — <b>HCG ถูกขับออกมากับปัสสาวะ</b> จึงใช้เป็นตัวทดสอบการตั้งครรภ์ได้</p>
+        </div>
+
+        <div class="card">
+          <h4>10. กระเพาะอาหาร (Stomach)</h4>
+          <p>เนื้อเยื่อชั้นในหลั่งฮอร์โมน <b>แกสตริน (Gastrin) — No.33</b> หน้าที่: กระตุ้นการหลั่งกรดไฮโดรคลอริกและเอนไซม์ กระตุ้นการหลั่งเอนไซม์จากตับอ่อน และควบคุมการเคลื่อนไหว (peristalsis) ของกระเพาะและลำไส้เล็ก</p>
+        </div>
+
+        <div class="card">
+          <h4>11. ลำไส้เล็ก (Small intestine — ส่วนดูโอดีนัม)</h4>
+          <div class="tbl-wrap">
+            <table>
+              <tr><th>ฮอร์โมน</th><th>หน้าที่</th></tr>
+              <tr><td><b>ซีครีทิน (Secretin) — No.34</b></td><td>กระตุ้นการหลั่ง NaHCO₃ จากตับอ่อน (ลดความเป็นกรดจากกระเพาะ) + กระตุ้นการหลั่งน้ำดีจากตับไปเก็บที่ถุงน้ำดี</td></tr>
+              <tr><td><b>คอลีซิสโตไคนิน (CCK) — No.35</b></td><td>กระตุ้นการหลั่งเอนไซม์จากตับอ่อน + กระตุ้นการหลั่งน้ำดีจากถุงน้ำดีเข้าสู่ลำไส้เล็ก</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <h4>ไต (Kidney)</h4>
+          <p>สร้างฮอร์โมน <b>อีรีโทรโพอิทิน (Erythropoietin) — No.36</b> ทำหน้าที่กระตุ้นการสร้างเซลล์เม็ดเลือดแดงจากไขกระดูก</p>
+        </div>
+      </section>
+
+      <hr class="sep">
+
+      <!-- ===================== OPPOSITES TABLE ===================== -->
+      <section id="opposites" class="gland" style="--accent:var(--gold)">
+        <div class="gland-head">
+          <div class="gland-num">★</div>
+          <div><h2>ฮอร์โมนที่ทำงานตรงข้ามกัน (ต้องจำ!)</h2></div>
+        </div>
+        <div class="tbl-wrap">
+          <table class="big-summary">
+            <tr><th>ฮอร์โมน</th><th>หน้าที่</th><th>ฮอร์โมนที่ออกฤทธิ์ตรงข้าม</th><th>หน้าที่</th></tr>
+            <tr><td><b>Insulin</b></td><td>ลดน้ำตาลในเลือด (กลูโคส → ไกลโคเจน)</td><td><b>GH, Glucagon, Thyroxine, Cortisol, Adrenalin</b></td><td>เพิ่มน้ำตาลในเลือด (ไกลโคเจน → กลูโคส)</td></tr>
+            <tr><td><b>PTH</b></td><td>เพิ่ม Ca²⁺ ในเลือด (สลายจากกระดูก)</td><td><b>Calcitonin</b></td><td>ลด Ca²⁺ ในเลือด (สะสมที่กระดูก)</td></tr>
+            <tr><td><b>Melatonin</b> (สัตว์ครึ่งน้ำครึ่งบก)</td><td>ทำให้สีผิวซีดลง</td><td><b>MSH</b> (สัตว์ครึ่งน้ำครึ่งบก)</td><td>ทำให้สีผิวเข้มขึ้น</td></tr>
+            <tr><td><b>Melatonin</b> (สัตว์เลี้ยงลูกด้วยนม)</td><td>ยับยั้งการเจริญของอวัยวะสืบพันธุ์</td><td><b>GnRH → FSH, LH</b> (สัตว์เลี้ยงลูกด้วยนม)</td><td>กระตุ้นการเจริญของอวัยวะสืบพันธุ์</td></tr>
+          </table>
+        </div>
+        <div class="mnemo"><b>ทริคจำฝั่ง "เพิ่มน้ำตาล"</b> ฮอร์โมนที่เพิ่มน้ำตาลในเลือดมีตั้ง 5 ตัว (GH, Glucagon, Thyroxine, Cortisol, Adrenalin) มีแค่ <b>Insulin</b> ตัวเดียวที่ลด — เวลาเจอโจทย์ "ฮอร์โมนลดน้ำตาลในเลือด" ให้นึกถึง Insulin ทันที ที่เหลือคือกลุ่มเพิ่มทั้งหมด</div>
+      </section>
+
+      <hr class="sep">
+
+      <!-- ===================== DISORDERS SUMMARY ===================== -->
+      <section id="disorders" class="gland" style="--accent:var(--gold)">
+        <div class="gland-head">
+          <div class="gland-num">★</div>
+          <div><h2>สรุปตารางความผิดปกติของฮอร์โมนทั้งหมด</h2></div>
+        </div>
+        <div class="tbl-wrap">
+          <table class="big-summary">
+            <tr><th>ฮอร์โมน</th><th>หลั่งน้อยเกินไป</th><th>หลั่งมากเกินไป</th></tr>
+            <tr><td rowspan="2"><b>GH</b></td><td>เด็ก: <b>Dwarfism</b> (แคระ)</td><td>เด็ก: <b>Gigantism</b> (ตัวสูงใหญ่ผิดปกติ)</td></tr>
+            <tr><td>ผู้ใหญ่: <b>Simmond's disease</b></td><td>ผู้ใหญ่: <b>Acromegaly</b> (กระดูกบางส่วนหนาใหญ่)</td></tr>
+            <tr><td><b>Cortisol</b></td><td><b>Addison's disease</b></td><td><b>Cushing's syndrome</b></td></tr>
+            <tr><td rowspan="2"><b>Thyroxine</b></td><td>เด็ก: <b>Cretinism</b> (เครทินิซึม)</td><td rowspan="2"><b>คอพอกเป็นพิษ / Grave's disease</b> (toxic goiter)</td></tr>
+            <tr><td>ผู้ใหญ่: <b>Myxedema</b> (มิกซีดีมา) / คอพอกธรรมดา (simple goiter) จากขาดไอโอดีน</td></tr>
+            <tr><td><b>Insulin</b></td><td><b>เบาหวาน (Diabetes)</b> ชนิดที่ 1 และ 2</td><td>น้ำตาลในเลือดต่ำเกินไป (ภาวะ hypoglycemia)</td></tr>
+          </table>
+        </div>
+      </section>
+
+      <hr class="sep">
+
+      <!-- ===================== QUIZ ===================== -->
+      <section id="quiz" class="gland" style="--accent:var(--gold)">
+        <div class="gland-head">
+          <div class="gland-num">?</div>
+          <div><h2>แนวข้อสอบจากเอกสาร (Ent เก่า) พร้อมเฉลย</h2></div>
+        </div>
+
+        <div class="quiz">
+          <div class="q">1. เด็กชาวเขาไม่เคยบริโภคเกลือไอโอดีนและอาหารทะเล เด็กเหล่านี้น่าจะมีอาการผิดปกติในข้อใด</div>
+          <div class="choices">ก. ต่อมใต้สมองโตมากกว่าปกติ &nbsp;&nbsp; ข. ต่อมใต้สมองลีบเล็ก &nbsp;&nbsp; ค. ระดับไทรอกซินในเลือดต่ำกว่าปกติ &nbsp;&nbsp; ง. อาจมีอาการตาถลน<br>จ. ต่อมไทรอยด์โตมาก &nbsp;&nbsp; ฉ. สติปัญญาต่ำ &nbsp;&nbsp; ช. ระดับ TSH ในเลือดสูงมาก<br>1) ก, จ, ฉ &nbsp; 2) ข, ค, ง &nbsp; 3) ก, ค, ง, ช &nbsp; 4) ค, จ, ฉ, ช</div>
+          <span class="answer">เฉลย: ข้อ 4 (ค, จ, ฉ, ช)</span>
+          <details class="expl"><summary>ดูคำอธิบาย</summary><p>ขาดไอโอดีน → สร้างไทรอกซินไม่ได้ (ค) → TSH หลั่งกระตุ้นตลอดเวลาแต่ไม่มีไอโอดีนใช้ (ช) → ต่อมไทรอยด์ทำงานหนักจนโต เป็นคอพอกธรรมดา (จ) → ผลต่อพัฒนาการสมอง สติปัญญาต่ำแบบเครทินิซึม (ฉ)</p></details>
+        </div>
+
+        <div class="quiz">
+          <div class="q">2. ข้อใดอธิบายความผิดปกติที่เกิดจากการทำงานของต่อมไร้ท่อได้ถูกต้อง</div>
+          <div class="choices">ก. Acromegaly เป็นอาการที่ต่อมใต้สมองสร้าง GH มากไปในวัยเด็ก<br>ข. Grave's disease เป็นอาการคอพอกแบบ nontoxic ในผู้ใหญ่<br>ค. Gigantism เป็นอาการที่ต่อมใต้สมองสร้าง GH มากไปในผู้ใหญ่<br>ง. Cushing syndrome เป็นอาการที่ต่อมอะดรีนัลคอร์เทกซ์สร้างคอร์ติซอลมากเกินไป<br>จ. Cretinism เป็นอาการที่ต่อมไทรอยด์ทำงานบกพร่องตั้งแต่เกิด<br>1) ก, ค &nbsp; 2) ข, ง &nbsp; 3) ง, จ &nbsp; 4) ก, ค, จ</div>
+          <span class="answer">เฉลย: ข้อ 3 (ง, จ)</span>
+          <details class="expl"><summary>ดูคำอธิบาย</summary><p>ก ผิด (Acromegaly เกิดในผู้ใหญ่ ไม่ใช่เด็ก) ข ผิด (Grave's disease เป็นคอพอกแบบ toxic ไม่ใช่ nontoxic) ค ผิด (Gigantism เกิดในเด็ก ไม่ใช่ผู้ใหญ่) ง และ จ ถูกต้องตามนิยาม</p></details>
+        </div>
+
+        <div class="quiz">
+          <div class="q">3. ภาวะที่ Ca²⁺ ในเลือดลดต่ำ มีผลต่อการทำงานของ parathyroid hormone ในข้อใด</div>
+          <div class="choices">ก. เพิ่มอัตราการดูดซึม Ca²⁺ จากลำไส้ &nbsp; ข. ลดอัตราการดูด Ca²⁺ กลับจากไต &nbsp; ค. ดึง Ca²⁺ จากกระดูกมาชดเชย &nbsp; ง. เพิ่มอัตราการดูด Ca²⁺ กลับจากไต &nbsp; จ. กระตุ้นการหลั่ง Calcitonin จากไทรอยด์<br>1) ข, ค &nbsp; 2) ค, ง &nbsp; 3) ง, จ &nbsp; 4) ก, ง, ค</div>
+          <span class="answer">เฉลย: ข้อ 4 (ก, ง, ค)</span>
+          <details class="expl"><summary>ดูคำอธิบาย</summary><p>PTH เพิ่ม Ca²⁺ ในเลือด 3 ทาง: เพิ่มดูดซึมจากลำไส้ (ก) เพิ่มดูดกลับจากไต (ง) และดึงจากกระดูก (ค) — ไม่ใช่ ข (ลดดูดกลับ) และไม่ใช่ จ (calcitonin ทำหน้าที่ตรงข้าม)</p></details>
+        </div>
+
+        <div class="quiz">
+          <div class="q">4. ยาคุมกำเนิดที่มีเอสโตรเจนและโพรเจสเตอโรน ป้องกันการตั้งครรภ์ได้อย่างไร</div>
+          <div class="choices">1) กระตุ้นให้ต่อมใต้สมองหลั่ง FSH ได้โดยตรง &nbsp; 2) ยับยั้งการหลั่ง GnRH &nbsp; 3) ยับยั้งต่อมใต้สมองโดยตรงไม่ให้หลั่ง LH &nbsp; 4) เปลี่ยนสมบัติของน้ำเมือกในปากมดลูกให้เหนียวขึ้น</div>
+          <span class="answer">เฉลย: ข้อ 2</span>
+          <details class="expl"><summary>ดูคำอธิบาย</summary><p>ฮอร์โมนสังเคราะห์ในยาคุมทำให้ระดับเอสโตรเจน/โพรเจสเตอโรนสูงตลอด เกิด negative feedback ยับยั้งการหลั่ง GnRH จากไฮโพทาลามัสเป็นหลัก ซึ่งส่งผลต่อเนื่องให้ FSH และ LH ไม่หลั่ง จึงไม่มีการตกไข่</p></details>
+        </div>
+
+        <div class="quiz">
+          <div class="q">5. ระดับกลูโคสในเลือดกุ้งเปลี่ยนแปลงเป็นวงจรตามเวลากลางวัน-กลางคืน เมื่อตัดก้านตากุ้งทั้งสองออก ระดับกลูโคสจะต่ำตลอดเวลา แต่เมื่อฉีดสารสกัดจากก้านตาที่ถูกตัด ระดับน้ำตาลเลือดกุ้งเพิ่มสูงขึ้นจนถึงจุดสูงสุดภายใน 1 ชั่วโมง แสดงว่าก้านตากุ้งเป็นแหล่งสร้างสารที่มีคุณสมบัติคล้ายฮอร์โมนใด</div>
+          <div class="choices">1) Insulin &nbsp; 2) Glucagon &nbsp; 3) Thyroxin &nbsp; 4) Melatonin</div>
+          <span class="answer">เฉลย: ข้อ 2 (Glucagon)</span>
+          <details class="expl"><summary>ดูคำอธิบาย</summary><p>สารจากก้านตากุ้งทำให้ระดับน้ำตาลในเลือด<b>สูงขึ้น</b> ซึ่งตรงกับคุณสมบัติของกลูคากอน (ฮอร์โมนกลุ่มเพิ่มน้ำตาลในเลือด) ไม่ใช่อินซูลินซึ่งลดน้ำตาล</p></details>
+        </div>
+
+        <div class="quiz">
+          <div class="q">6. เมื่อระดับน้ำตาลในเลือดต่ำกว่าระดับปกติ เซลล์ใดของไอสเลตออฟแลงเกอร์ฮานส์ที่ถูกกระตุ้น และฮอร์โมนที่หลั่งออกมาคือข้อใด</div>
+          <div class="choices">1) บีตาเซลล์ และ กลูคากอน &nbsp; 2) บีตาเซลล์ และ อินซูลิน &nbsp; 3) แอลฟาเซลล์ และ กลูคากอน &nbsp; 4) แอลฟาเซลล์ และ อินซูลิน</div>
+          <span class="answer">เฉลย: ข้อ 3</span>
+          <details class="expl"><summary>ดูคำอธิบาย</summary><p>น้ำตาลต่ำ → ร่างกายต้องการเพิ่มน้ำตาล → กระตุ้นเซลล์แอลฟาให้หลั่งกลูคากอน (ไม่ใช่บีตา/อินซูลินซึ่งทำงานเมื่อน้ำตาลสูง)</p></details>
+        </div>
+      </section>
+
+      <div class="note" style="margin-top:40px;">
+        <b>สรุปก่อนเข้าห้องสอบ:</b> เน้นทวน 3 อย่างนี้ให้แม่นที่สุด — (1) แกน hypothalamus → ต่อมใต้สมอง → ต่อมปลายทาง ของแต่ละฮอร์โมน (2) ตารางฮอร์โมนหลั่งน้อย vs หลั่งมาก พร้อมชื่อโรค (3) คู่ฮอร์โมนที่ทำงานตรงข้ามกัน (Insulin↔กลุ่มเพิ่มน้ำตาล, PTH↔Calcitonin, Melatonin↔MSH/GnRH) โชคดีกับการสอบพรุ่งนี้ 🎯
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<a href="#" class="totop">↑</a>
+
+<script>
+document.querySelectorAll('.side-nav a').forEach(a=>{
+  a.addEventListener('click',()=>{
+    document.querySelector('.sidebar').classList.remove('open');
+  });
+});
+</script>
+</body>
+</html>
